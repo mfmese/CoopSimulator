@@ -1,0 +1,79 @@
+Coop Simulator
+
+First of all we need to understand requirements of the rabbit coop simulation. 
+We have rabbits in the coop and females give birth for a specific period of time. 
+We want to calculate count of all rabbits in the coop in a specific time.
+
+What we need to know at the beggining of the simulation;
+* initial state of the coop about how many male and female rabbits 
+* female rabbits give birth at certain intervals
+* female rabbits give birth to a certain age
+* how many rabbit can live in a coop (maximum population)
+* user simulation cycle. Specific time period (monthly precision)
+
+Output should include;
+* Number of male / female rabbits
+* rabbits age at a given time
+
+Implementation Plan
+I am going to create a configuration file which include all initial requirements for the simulation.
+{
+  "animals": [
+    {
+      "name": "Rabbit",
+      "femaleBirthAtMonth": 3,
+      "femaleBirthAgeAtMonth": 36,
+      "femaleNumberOfBirth": 2
+    },
+    {
+      "name": "Chicken",
+      "femaleBirthAtMonth": 1,
+      "femaleBirthAgeAtMonth": 25,
+      "femaleNumberOfBirth": 5
+    }
+  ],
+  "coop": {
+    "initialStates": [
+      {
+        "animalName": "Rabbit",
+        "females": [
+          {
+            "Age": 3
+          }
+        ],
+        "males": [
+          {
+            "Age": 3
+          }
+        ]
+      },
+      {
+        "animalName": "Chicken",
+        "females": [
+          {
+            "Age": 2
+          }
+        ],
+        "males": [
+          {
+            "Age": 2
+          }
+        ]
+      }
+    ],
+    "maxPopulation": 500
+  },
+  "cyclePeriodAtMonth": 4
+}
+
+Secondly, we need to create concrete class for entity.
+We need Animal class and Coop class.
+
+Thirtly, We need a business layer to process simulation
+
+I am going to use.Net Core 3.1 Console Application for implementation
+I will also use BenchmarkDotNet for simulation performance 
+I am going to create an appsetting.json as configuration file in order to get simulation requirements.
+You can reach the codes in github page link is: 
+
+
